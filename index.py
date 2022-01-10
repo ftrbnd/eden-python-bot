@@ -1,7 +1,7 @@
 import discord
 import random
 
-TOKEN = 'OTMwMTYzNzI5NTkxNTk5MTk1.Ydx4eg.83PHyphHW4MJe_swVwluMASH_Ec'
+TOKEN = 'OTMwMTYzNzI5NTkxNTk5MTk1.Ydx4eg.P3kldprjpVPtn400jggWW1UyBrs'
 
 client = discord.Client()
 
@@ -36,5 +36,11 @@ async def on_message(message):
         await message.channel.send('This can be used anywhere!')
         return
 
+    if user_message.lower() == '!8ball':
+        random_responses = ['As I see it, yes.', 'Ask again later.', 'Better not tell you now.', 'Cannot predict now.', 'Concentrate and ask again.',                         'Don’t count on it.', 'It is certain.', 'It is decidedly so.', 'Most likely.', 'My reply is no.', 'My sources say no.',                      'Outlook not so good.', 'Outlook good.', 'Reply hazy, try again.', 'Signs point to yes.', 'Very doubtful.', 'Without a doubt.',                     'Yes.', 'Yes – definitely.', 'You may rely on it.']
+        random_response = random.choice(random_responses)
+
+        await message.channel.send(f'This is your 8ball response: {random_response}')
+        return
 
 client.run(TOKEN)
