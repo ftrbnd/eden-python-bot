@@ -1,8 +1,8 @@
 import discord
 import random
+from dotenv import dotenv_values
 
-TOKEN = 'OTMwMTYzNzI5NTkxNTk5MTk1.Ydx4eg.P3kldprjpVPtn400jggWW1UyBrs'
-
+config = dotenv_values(".env")
 client = discord.Client()
 
 @client.event
@@ -43,4 +43,4 @@ async def on_message(message):
         await message.channel.send(f'This is your 8ball response: {random_response}')
         return
 
-client.run(TOKEN)
+client.run(config["TOKEN"])
